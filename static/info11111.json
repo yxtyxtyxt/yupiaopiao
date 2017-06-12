@@ -1,0 +1,25 @@
+{
+	"resultcode":"200",
+	"reason":"成功的返回",
+	"result":{
+		"movieid":"40205",
+		"rating":"-1",
+		"genres":"动作\/冒险\/奇幻",
+		"runtime":null,
+		"language":"英语",
+		"title":"神奇女侠",
+		"poster":"http:\/\/img5.mtime.cn\/mg\/2016\/11\/04\/101224.47618989_270X405X4.jpg",
+		"writers":"William M. Marston,艾伦·海博格,...",
+		"film_locations":"美国",
+		"directors":"派蒂·杰金斯",
+		"rating_count":"183",
+		"actors":"盖尔·加朵 Gal Gadot,克里斯·派恩 Chris Pine,康妮·尼尔森 Connie Nielsen,罗宾·怀特 Robin Wright",
+		"plot_simple":"戴安娜是亚马逊一族的公主，生活在天堂岛上。天堂岛是一个纯女人的国度，居民们都长生不老、头脑聪明，且拥有着巨大神力。因为一起意外事件，戴安娜离开家乡，来到了钢筋水泥的城市里，从此作为天堂岛的使者保护人类……",
+		"year":"2017",
+		"country":"美国",
+		"type":null,
+		"release_date":"20170602",
+		"also_known_as":"神力女超人"
+	},
+	"error_code":0
+}
