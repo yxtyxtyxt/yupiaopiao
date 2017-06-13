@@ -2,15 +2,15 @@
   <div class="moviInfo">
    	  <div id="bg_pic">
    	  	<div class="left">
-   	  		<img src="../../static/4.jpg" alt="" />
+   	  		<img :src=arr.poster />
    	  		<span></span>
    	  	</div>
    	  	<div class="right">
-   	  		<ul>
-   	  			<li>神奇女侠</li>
-   	  			<li>动作 冒险 奇幻</li>
-   	  			<li>美国 | 183分钟</li>
-   	  			<li>盖尔·加朵 Gal</li>
+   	  		<ul v-for="item in arr">
+   	  			<li>{{arr.title}}</li>
+   	  			<li>{{arr.genres}}</li>
+   	  			<li>{{arr.country}} | {{arr.rating_count}}分钟</li>
+   	  			<li>上映时间：{{arr.release_date}}</li>
    	  		</ul>
    	  	</div>
    	  </div>
@@ -18,27 +18,33 @@
    	  	<mt-button type="primary" id ="btn">喜欢</mt-button>
    	  	<mt-button type="primary" id ="btn">评分</mt-button>  	 	
    	  </div>
-   	  <div id="">
-   	  	<span></span>
+   	  <div id="centers">
+   	  	<p>{{arr.plot_simple}}</p>
    	  </div>
    	  
   </div>
 </template>
 
 <script>
+import Vue from "vue"
 export default {
   name: 'moviInfo',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      arr:""
     }
+  },
+  created(){
+  	Vue.axios.get("../../static/info.json").then((res)=>{
+  		return res.data.result
+  	}).then((data) =>{     	
+      	this.arr = data;     	
+    })
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+		
 <style scoped>
-
 #bg_pic{
 	background: url(../../static/bg.jpg) no-repeat;
 	overflow: hidden;
@@ -70,6 +76,9 @@ export default {
 	text-align: left;
 	margin-top:0.8rem;
 	line-height: 0.5rem;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 #btns{
 	height:1.2rem;
@@ -83,5 +92,16 @@ export default {
 	font-size: 0.25rem;
 	background: #DCDCDC;
 	color: #666;
+}
+#centers{
+	height:2.8rem;
+	width: 86%;
+/*	background: orange;*/
+	margin-left:0.38rem;
+}
+#centers p{
+	font-size:0.26rem;
+	line-height: 0.5rem;
+	color:#666;
 }
 </style>

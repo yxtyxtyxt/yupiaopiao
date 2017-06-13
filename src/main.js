@@ -4,13 +4,15 @@ import Vue from 'vue'
 import Comment from './comment'
 import 'mint-ui/lib/style.css'
 import { Header,Button } from 'mint-ui'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import router from './router'
 
 Vue.config.productionTip = false
 
 Vue.component(Header.name,Header)
 Vue.component(Button.name,Button)
-
+Vue.use(VueAxios, axios)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
