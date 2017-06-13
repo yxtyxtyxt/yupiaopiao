@@ -1,18 +1,18 @@
 <template>
 	<div id="app">
 		<mt-header title="娱票票">
-			<router-link to="/" slot="left">
+			<router-link to="/cinema" slot="left">
 				<mt-button>北京</mt-button>
 			</router-link>
 			<mt-button icon="search" slot="right"></mt-button>
 		</mt-header>
 		<router-view></router-view>
 		<footer id="fott" class="bar bar-tab">
-			<router-link to='/user/foo' class="rout">
+			<router-link to='/moviInfo' class="rout">
 				<i class="iconfont icon-dianying"></i>
 				<span class="tab-label">{{tab01}}</span>
 			</router-link>
-			<router-link to='/user/foo/tab02' class="rout">
+			<router-link to='/cinemaList' class="rout">
 				<i class="iconfont icon-yingyuanb"></i>
 				<span class="tab-label">{{tab02}}</span>
 			</router-link>
