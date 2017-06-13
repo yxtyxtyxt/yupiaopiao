@@ -1,25 +1,29 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import Comment from './comment'
-import 'mint-ui/lib/style.css'
-import { Header,Button } from 'mint-ui'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import Comment  from './comment'
 import router from './router'
+import { Popup,Header,Button,Swipe, SwipeItem,TabContainer,TabContainerItem,Cell,Search} from 'mint-ui';
+import 'mint-ui/lib/style.css';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import "bootstrap/dist/css/bootstrap.min.css"
 
-Vue.config.productionTip = false
-
+Vue.use(VueAxios,axios);
+Vue.component(Popup.name, Popup);
 Vue.component(Header.name,Header)
 Vue.component(Button.name,Button)
-Vue.use(VueAxios, axios)
+Vue.component(TabContainer.name, TabContainer);
+Vue.component(TabContainerItem.name, TabContainerItem);
+Vue.component(Swipe.name, Swipe);
+Vue.component(Cell.name, Cell);
+Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Search.name, Search);
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  template: `<div>
-  			<Comment></Comment>
-  			
-  </div>`,
-  components: { Comment,Header,Button}
+  template: `<div><Comment></Comment></div>`,
+  components: {Comment,Header,Button,TabContainer,TabContainerItem,Cell,VueAxios,axios,router,Swipe, SwipeItem,Search}
 })
