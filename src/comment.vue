@@ -6,6 +6,7 @@
 			  </router-link>
 			  <mt-button icon="search" slot="right"></mt-button>
 			</mt-header>
+			<router-view></router-view>
 			<footer id="fott">
   			<div class="fbox">
   				<a class="iconfont icon-dianying"></a>
@@ -49,7 +50,7 @@ export default {
 	}
 	#fott{
 	width:100%;
-	height:0.82rem;
+	height:0.8rem;
 	background: #26a2ff;
 	display: flex;
 	justify-content: space-around;

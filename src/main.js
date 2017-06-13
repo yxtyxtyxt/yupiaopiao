@@ -17,6 +17,7 @@ new Vue({
   router,
   template: `<div>
   			<Comment></Comment>
+  			
   </div>`,
-  components: { Comment,Header,Button,}
+  components: { Comment,Header,Button}
 })
