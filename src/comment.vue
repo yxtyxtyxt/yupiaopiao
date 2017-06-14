@@ -20,7 +20,7 @@
 				<i class="iconfont icon-quanzi2-copy-copy-copy"></i>
 				<span class="tab-label">{{tab03}}</span>
 			</router-link>
-			<router-link to='/user/foo/tab04' class="rout">
+			<router-link to='/login' class="rout">
 				<i class="iconfont icon-wode"></i>
 				<span class="tab-label">{{tab04}}</span>
 			</router-link>
@@ -36,7 +36,7 @@
 				tab01: '热映',
 				tab02: '影院',
 				tab03: '圈子',
-				tab04: '新闻'
+				tab04: '我的'
 			}
 		}
 	}

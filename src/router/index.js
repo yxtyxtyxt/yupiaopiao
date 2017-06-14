@@ -5,6 +5,7 @@ import cinemaInfo from '@/components/cinemaInfo'
 import MoviInfo from '@/components/moviInfo'
 import cinema from '@/components/cinema'
 import List from '@/components/list'
+import Login from '@/components/login'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -14,7 +15,7 @@ export default new Router({
       component: List
     },
   	{
-      path: '/moviInfo',
+      path: '/moviInfo/:id',
       name: 'MoviInfo',
       component: MoviInfo
     },
@@ -32,6 +33,11 @@ export default new Router({
     	path:'/cinema/',
     	name:'cinema',
     	component:cinema
+    },
+    {
+    	path:'/login/',
+    	name:'Login',
+    	component:Login
     }
   ]
 })

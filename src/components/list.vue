@@ -15,7 +15,7 @@
 			<mt-tab-container-item id="tab-container1">
 				<ul>
 					<li v-for="item in spliceStr">
-							<router-link :to="{ name:'MoviInfo', params:{id:item.movieId}}">
+							<router-link :to="{ name:'MoviInfo', params:{id:'id=' +item.movieId}}">
 				    		<p><img :src="item.pic_url" id="images"></p>
 						  	<p id="word">{{item.movieName}}</p>
 			    	</router-link>
