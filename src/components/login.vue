@@ -4,48 +4,55 @@
   	<div id="ying"></div>
 			<div class="headPic">
 				<div class="setPic"></div>
-					<span>立即登录</span>
+					<span>{{login}}</span>
 					 <i class="iconfont icon-jinru bttn"></i>
 			</div>
 			<div id="Top">
 				<router-link to='/' class="rout">
 					<i class="iconfont icon-xin" id="huo"></i>
-					<span class="fott">想看</span>
+					<span class="fott">{{want1}}</span>
 				</router-link>
 				<router-link to='/cinemaList' class="rout">
 					<i class="iconfont icon-kanguo" id="copy"></i>
-					<span class="fott">看过</span>
+					<span class="fott">{{want2}}</span>
 				</router-link>
 				<router-link to='/found' class="rout">
 					<i class="iconfont icon-huati" id="shangcheng"></i>
-					<span class="fott">话题</span>
+					<span class="fott">{{want3}}</span>
 				</router-link>
 				<router-link to='found' class="rout">
 					<i class="iconfont icon-bianji" id="piaowuguanlihover"></i>
-					<span class="fott">影评</span>
+					<span class="fott">{{want4}}</span>
 				</router-link>
 		</div>
 		<div class="dingdan">
 			<p class="dan">我的订单</p>
 		</div>
 					<div class="oop">
-				<router-link to='/' class="rout">
-					<i class="iconfont icon-qianbao" id="biao"></i>
-					<span class="fott ftt">未消费</span>
-				</router-link>
-				<router-link to='/cinemaList' class="rout">
-					<i class="iconfont icon-zhifu" id="biao"></i>
-					<span class="fott ftt">待支付</span>
-				</router-link>
-				<router-link to='/found' class="rout">
-					<i class="iconfont icon-pingjia" id="biao"></i>
-					<span class="fott ftt">待评价</span>
-				</router-link>
-				<router-link to='found' class="rout">
-					<i class="iconfont icon-tuikuan" id="biao"></i>
-					<span class="fott ftt">待退款</span>
-				</router-link>
-		</div>
+						<router-link to='/' class="rout">
+							<i class="iconfont icon-qianbao" id="biao"></i>
+							<span class="fott ftt">{{count1}}</span>
+						</router-link>
+						<router-link to='/cinemaList' class="rout">
+							<i class="iconfont icon-zhifu" id="biao"></i>
+							<span class="fott ftt">{{count2}}</span>
+						</router-link>
+						<router-link to='/found' class="rout">
+							<i class="iconfont icon-pingjia" id="biao"></i>
+							<span class="fott ftt">{{count3}}</span>
+						</router-link>
+						<router-link to='found' class="rout">
+							<i class="iconfont icon-tuikuan" id="biao"></i>
+							<span class="fott ftt">{{count4}}</span>
+						</router-link>
+				</div>
+				<div id="selected">
+					<p class="taa">{{ta1}}<i class="iconfont icon-jinru bttFan"></i></p>
+					<p class="taa">{{ta2}}<i class="iconfont icon-jinru bttFan"></i></p>
+					<p class="taa">{{ta3}}<i class="iconfont icon-jinru bttFan"></i></p>
+					<p class="taa">{{ta4}}<i class="iconfont icon-jinru bttFan"></i></p>
+				</div>
+				<div class="box"><i>设置</i></div>
   </div>
 </template>
 
@@ -54,7 +61,21 @@ export default {
   name: 'login',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+    	login:"立即登录",
+    	want1:"想看",
+    	want2:"看过",
+    	want3:"话题",
+    	want4:"影评",
+    	count1:"未消费",
+    	count2:"待支付",
+    	count3:"待评价",
+    	count4:"待退款",
+      ta1:"我的消息",
+      ta2:"我的收藏",
+      ta3:"会员中心",
+      ta4:"我的成就",
+      pack:"钱包",
+      money:"余额"
     }
   }
 }
@@ -180,5 +201,44 @@ span{
 .ftt{
 	color: #ccc;
 	font-size: 0.23rem;
+}
+#selected{
+	margin-top: 0.5rem;
+	height: 2.9rem;
+	background: rgba(255,255,255,0.1);
+	overflow: hidden;
+	border: 0.01rem solid;
+	border-color:rgba(255,255,255,0.5) ;
+}
+.taa{
+	display: block;
+	font-size: 0.3rem;
+	border-bottom: 0.01rem solid #ccc;
+	margin: 0.25rem 0.3rem;
+	border-color:#bbbdc7;
+	color:#fafafa;
+}
+.taa:last-child{
+	border:0;
+}
+.bttFan{
+	padding-left: 4.2rem;
+	color:#bbbdc7;
+}
+.box{
+	margin-top: 0.48rem;
+	background: rgba(255,255,255,0.1);
+	height:0.8rem;
+	border: 0.01rem solid;
+	border-color:rgba(255,255,255,0.5) ;
+	color:#fafafa;
+	font-size: 0.3rem;
+	overflow: hidden;	
+}
+.box>i{
+	display: block;
+	font-style:normal;
+	margin-left: 0.3rem;
+	padding-top:0.22rem;
 }
 </style>

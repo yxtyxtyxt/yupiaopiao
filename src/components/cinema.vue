@@ -2,6 +2,7 @@
 	<div id="cin">
 		<div id="haha"></div>
 		<div id="pp"></div>
+		<div></div>
 		<div class="col-lg-6">
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="Search for...">
@@ -11,17 +12,18 @@
 			</div>
 		</div>
 		<div>
-			<span class="list-group-item active">热门城市：</span>
+			<span class="list-group-item active change">当前选择：<b class="bsto">{{city_name}}</b></span>
+			<span class="list-group-item active">热门城市</span>
 			<ul class="cityList">
 				<li v-for="item in arr1" class="list">
-					<a href="#">{{item.city_name}}</a>
+					<a @click="cityName($event)">{{item.city_name}}</a>
 				</li>
 			</ul>
 			<div class="list-group">
 				<li class="list-group-item active">
 					城市选择
 				</li>
-				<a href="#" class="list-group-item" v-for="item in arr2">{{item.city_name}}</a>
+				<router-link :to="{ name:'cinemaList', params:{id:item.id} }"  class="list-group-item" v-for="(item,index) in arr2" @click="cityName($event)">{{item.city_name}}</router-link>
 			</div>
 		</div>
 	</div>
@@ -37,19 +39,13 @@
 				arr1: "",
 				arr2: "",
 				shows: "",
-				flag: "true"
+				city_name:'北京'
 			}
 		},
 		methods: {
-			cityList() {
-				if(this.flag) {
-					this.shows = "block";
-					this.flag = false
-				} else {
-					this.shows = "none";
-					this.flag = true
-				}
-			}
+					cityName(event){
+							this.city_name=event.currentTarget.innerText
+						},
 		},
 		created() {
 			Vue.axios.get('../../../static/city.json').then((res) => {
@@ -58,10 +54,7 @@
 				this.arr1 = data;
 				this.arr1 = this.arr1.slice(0, 20);
 				this.arr2 = data;
-				console.log(this.arr2)
-				//				this.arr.forEach((item) => {
-				//					return item.city_name
-				//				})
+				this.arr2 = this.arr2.slice(0, 80);
 			})
 		}
 	}
@@ -77,7 +70,13 @@
 	}	
 	ul,li,dl,dt,dd {
 		list-style: none;
-	}	
+	}
+	.list-group-item.active.change{
+		margin-bottom: 0.4rem;
+	}
+	.list-group-item.active.change b{
+		background: none;
+	}
 	#cin{
 		margin-top:0.69rem;
 	}
@@ -85,8 +84,8 @@
 		position: fixed;
 		height:100%;
 		width: 100%;
-		background: rgba(0,0,0,0.7);
-		z-index: 1;
+		background: rgba(0,0,0,0.3);
+		z-index: -1;
 	}
 	#pp{
 		background: url(../../static/8.jpg) no-repeat;
@@ -94,6 +93,9 @@
 		height:100%;
 		width: 100%;
 		background-size: cover;
+	}
+	.bsto{
+		color:#000;
 	}
 	.dList dd a {
 		display: block;
