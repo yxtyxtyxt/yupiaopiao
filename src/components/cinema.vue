@@ -1,18 +1,31 @@
 <template>
-	<div>
-	<div class="btn-group">
-		<button type="button" @click="cityList" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    城市
-  </button>
-		<div class="dropdown-menu" :style="{display:shows}">
-			<ul>
-				<li v-for="item in arr" class="list">
+	<div id="cin">
+		<div id="haha"></div>
+		<div id="pp"></div>
+		<div class="col-lg-6">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search for...">
+				<span class="input-group-btn">
+		        <button class="btn btn-default" type="button">Go!</button>
+		      	</span>
+			</div>
+		</div>
+		<div>
+			<span class="list-group-item active">热门城市：</span>
+			<ul class="cityList">
+				<li v-for="item in arr1" class="list">
 					<a href="#">{{item.city_name}}</a>
 				</li>
 			</ul>
+			<div class="list-group">
+				<li class="list-group-item active">
+					城市选择
+				</li>
+				<a href="#" class="list-group-item" v-for="item in arr2">{{item.city_name}}</a>
+			</div>
 		</div>
 	</div>
-</div>
+	</div>
 </template>
 
 <script>
@@ -21,7 +34,8 @@
 		name: 'cinema',
 		data() {
 			return {
-				arr: "",
+				arr1: "",
+				arr2: "",
 				shows: "",
 				flag: "true"
 			}
@@ -41,8 +55,10 @@
 			Vue.axios.get('../../../static/city.json').then((res) => {
 				return res.data.result
 			}).then((data) => {
-				this.arr = data;
-				this.arr.length = 20;
+				this.arr1 = data;
+				this.arr1 = this.arr1.slice(0, 20);
+				this.arr2 = data;
+				console.log(this.arr2)
 				//				this.arr.forEach((item) => {
 				//					return item.city_name
 				//				})
@@ -52,36 +68,76 @@
 </script>
 
 <style>
-	* {
+	*{
 		margin: 0;
 		padding: 0;
-	}
-	
-	ul,
-	li,
-	dl,
-	dt,
-	dd {
+	}	
+	a{
+		text-decoration: none !important;
+	}	
+	ul,li,dl,dt,dd {
 		list-style: none;
+	}	
+	#cin{
+		margin-top:0.69rem;
 	}
-	
-	.btn-group {
-		position: absolute;
-		left: 0;
-		top: 0.5rem;
+	#haha{
+		position: fixed;
+		height:100%;
+		width: 100%;
+		background: rgba(0,0,0,0.7);
+		z-index: 1;
 	}
-	.dropdown-menu{
+	#pp{
+		background: url(../../static/8.jpg) no-repeat;
+		position: fixed;
+		height:100%;
+		width: 100%;
+		background-size: cover;
+	}
+	.dList dd a {
+		display: block;
+		padding: 0.2rem 0.3rem;
+	}
+	.list-group-item{
+		background: none;
+	}
+	.dList dd a:hover {
+		background: rgba(121, 142, 31, .3);
+	}	
+	.col-lg-6 {
+		margin: 0.3rem 0 0.3rem 0;
+	}	
+	.list-group-item.active {
+		background: #ffcb16;
+		border-color: #242424;
+	}
+	a.list-group-item:hover{
+		background: #2C3E50;
+		background: rgba(11, 112, 121, .3);
+	}
+	.cityList {
 		width: 100vw;
-	}
-	.dropdown-menu ul{
-		margin: 0;
 		display: flex;
-		flex-direction:row;
-	}
-	
-	.dropdown-menu li.list{
-		width: 10vw;
+		flex-flow: wrap;
+		justify-content: flex-start;
+		z-index: 5;
+	}	
+	.cityList li a {
+		text-decoration: none;
+		width: 2rem;
+		padding: 0.1rem 0;
 		text-align: center;
-		float: left;
+		display: block;
+		position:relative;
+		z-index: 6;
+		color:#fff;
+		font-size: 0.26rem;
+	}	
+	.cityList li a:hover {
+		background: rgba(11, 112, 121, .3);
+	}
+	a.list-group-item, button.list-group-item{
+		color:deepskyblue;
 	}
 </style>

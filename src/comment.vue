@@ -8,7 +8,7 @@
 		</mt-header>
 		<router-view></router-view>
 		<footer id="fott" class="bar bar-tab">
-			<router-link to='/moviInfo' class="rout">
+			<router-link to='/' class="rout">
 				<i class="iconfont icon-dianying"></i>
 				<span class="tab-label">{{tab01}}</span>
 			</router-link>
@@ -48,6 +48,18 @@
 	}	
 	html {
 		font-size: 15.625vw;
+	}
+	/*body{
+	background-color:#1D202F!important;
+	line-height: 0!important;
+	}*/
+	.mint-header{
+		position: fixed;
+		top:0;
+		left:0;
+		width:100%;
+		z-index: 1000;
+		background: #1D202f;
 	}	
 	ul,ol,li {
 		list-style: none;
@@ -58,29 +70,30 @@
 	}	
 	#fott {
 		width: 100%;
-		height: 0.8rem;
-		background: #26a2ff;
+		height: 0.68rem;
+		background: #1D202f;
 		display: flex;
 		justify-content: space-around;
 		position: fixed;
 		left: 0;
 		bottom: 0;
+		z-index: 10;
 	}	
 	#fott .rout {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-around;
 		align-items: center;
 	}	
 	#fott .rout>span {
+		display: block;
 		font-style: normal;
 		color: #fff;
-		font-size: 0.25rem;
-		margin-top: 0.04rem;
+		font-size: 0.22rem;
 	}	
 	.iconfont {
 		color: #fff;
-		font-size: 0.35rem!important;
-		margin-top: 0.02rem;
+		font-size: 0.32rem!important;
+		margin-top: 0.03rem;
 	}
 </style>
