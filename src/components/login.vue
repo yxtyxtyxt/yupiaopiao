@@ -4,7 +4,9 @@
   	<div id="ying"></div>
 			<div class="headPic">
 				<div class="setPic"></div>
-					<span>{{login}}</span>
+				 <router-link class="router" to="/register">
+					 <span>{{login}}</span>
+				 </router-link>
 					 <i class="iconfont icon-jinru bttn"></i>
 			</div>
 			<div id="Top">
@@ -118,7 +120,7 @@ export default {
 	background: url(../../static/77.png) no-repeat;
 	background-size: cover;
 }
-span{
+.router>span{
 	display: block;
 	color:#fafafa;
 	float: left;

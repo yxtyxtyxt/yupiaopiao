@@ -50,13 +50,18 @@ export default {
     }
   },
   created(){
-  	Vue.axios.get("../../static/info.json").then((res)=>{
+//	var url1 = window.location.hash;			
+//			var str11 = url1.split("/");				
+//			var res = str11[2].split("=");
+//			var id = res[1];
+//			Vue.axios.get('/movie/query?movieid='+id+'&dtype=&key=8a1d4466590e5546e5503d1e8c56bd27').then((res) => {
+		Vue.axios.get('../../static/info.json').then((res) => {	
+				console.log(res)
   		return res.data.result
   	}).then((data) =>{     	
       	this.arr = data;     	
     })
   }
-
 }
 </script>
 		

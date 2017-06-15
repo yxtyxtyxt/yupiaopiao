@@ -7,6 +7,7 @@ import cinema from '@/components/cinema'
 import List from '@/components/list'
 import Login from '@/components/login'
 import Found from '@/components/found'
+import Register from '@/components/register'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -44,6 +45,11 @@ export default new Router({
       path: '/found',
       name: 'Found',
       component:Found
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component:Register
     }
   ]
 })

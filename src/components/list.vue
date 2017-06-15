@@ -5,10 +5,6 @@
 			<mt-swipe-item><img src="http://img.tulaoshi.com/image/20150520/1bf93c8afc4e81ffc49bd2b4313381b4.jpg"></mt-swipe-item>
 			<mt-swipe-item><img src="http://www.hanhande.com/upload/170529/4182606_160233_1.jpg"></mt-swipe-item>
 		</mt-swipe>
-		<!--<ul class="nav nav-tabs">
-		  <li role="presentation" class="active"><a>正在热播</a></li>
-		  <li role="presentation"><a href="#">即将上映</a></li>
-		</ul>-->
 
 	<div>
 		<mt-tab-container>
@@ -47,7 +43,7 @@ created(){
 //			console.log(data)
 //		}
 //	})
-	Vue.axios.get("../../static/jinreshangying.json").then((res) => {
+	Vue.axios.get("/movie/movies.today?cityid=3&dtype=&key=8a1d4466590e5546e5503d1e8c56bd27").then((res) => {
 			//return res.data;
 		  //console.log(res.data.result)
 		  return res.data.result
