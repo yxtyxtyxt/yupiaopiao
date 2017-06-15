@@ -1,22 +1,23 @@
 <template>
 	<div id="app">
-		<mt-header title="娱票票">
-			<router-link to="/cinema" slot="left">
-				<mt-button>北京</mt-button>
+		<header id="heade">
+			<router-link to='/cinema' class="hhe">
+				<i class="btnn">北京</i>
 			</router-link>
-			<mt-button icon="search" slot="right"></mt-button>
-		</mt-header>
+			<span>娱票票</span>
+			<i class="iconfont icon-search"></i>
+		</header>
 		<router-view></router-view>
-		<footer id="fott" class="bar bar-tab">
-			<router-link to='/' class="rout">
+		<footer id="fott" class="bar bar-tab">	
+			<router-link to='/' class="rout" >
 				<i class="iconfont icon-dianying"></i>
-				<span class="tab-label">{{tab01}}</span>
+				<span class="tab-label" >{{tab01}}</span>
 			</router-link>
 			<router-link to='/cinemaList' class="rout">
 				<i class="iconfont icon-yingyuanb"></i>
 				<span class="tab-label">{{tab02}}</span>
 			</router-link>
-			<router-link to='/user/foo/tab03' class="rout">
+			<router-link to='/found' class="rout">
 				<i class="iconfont icon-quanzi2-copy-copy-copy"></i>
 				<span class="tab-label">{{tab03}}</span>
 			</router-link>
@@ -39,6 +40,11 @@
 				tab04: '我的'
 			}
 		}
+//		methods:{
+//			addEvent(event){
+//				event.currentTarget.style.color = "red";
+//			}
+//		}
 	}
 </script>
 <style>
@@ -49,22 +55,36 @@
 	html {
 		font-size: 15.625vw;
 	}
-	/*body{
-	background-color:#1D202F!important;
-	line-height: 0!important;
-	}*/
-	.mint-header{
+	#heade{
 		position: fixed;
 		top:0;
 		left:0;
 		width:100%;
 		z-index: 1000;
 		background: #1D202f;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		height:0.68rem;
+	}
+	#heade>span{
+		color:#fff;
+		font-size: 0.3rem;
 	}	
+	.hhe>.btnn{
+		border:0;
+		background: none;
+		font-size: 0.25rem;
+		color:#ccc;
+		margin-left:-0.38rem;
+		font-style:normal;
+	}
+	/*#heade>i{
+	   margin-right:-0.35rem; 
+	}*/
 	ul,ol,li {
 		list-style: none;
-	}
-	
+	}	
 	a{
 		text-decoration: none;
 	}	
@@ -78,14 +98,19 @@
 		left: 0;
 		bottom: 0;
 		z-index: 10;
-	}	
-	#fott .rout {
+	}
+	/*.clickFilex{
+		display: flex;
+		flex-direction: column;
+	}*/
+		
+	.rout {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
 	}	
-	#fott .rout>span {
+	span {
 		display: block;
 		font-style: normal;
 		color: #fff;

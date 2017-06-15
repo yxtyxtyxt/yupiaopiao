@@ -149,14 +149,14 @@ span{
 		color:#fff;
 	}
 	#Top,.oop{
-		height:1.3rem;
+		height:1.2rem;
 		display: flex;
-		flex-flow: row;
 		background: rgba(255,255,255,0.1);
-		align-content: space-around;
+		justify-content: space-around;
+		align-items: center;
 		border: 0.01rem solid;
 		border-color:rgba(255,255,255,0.5) ;
-		padding-bottom: 0.15rem;
+		/*padding-bottom: 0.15rem;*/
 	}
 	.fott{
 		margin: 0;
