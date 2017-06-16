@@ -121,7 +121,7 @@ export default {
 }
 .myself{
 	display: block;
-	position: absolute;
+	position: fixed;
 	right:0.2rem;
 	bottom:1rem;
 	color:#fcc;

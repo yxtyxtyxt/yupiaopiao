@@ -1,9 +1,10 @@
 <template>
   <div class="list">
     <mt-swipe :auto="4000">
-			<mt-swipe-item><img src="http://pic2.orsoon.com/2017/0609/20170609113930108.jpg"></mt-swipe-item>
-			<mt-swipe-item><img src="http://img.tulaoshi.com/image/20150520/1bf93c8afc4e81ffc49bd2b4313381b4.jpg"></mt-swipe-item>
-			<mt-swipe-item><img src="http://www.hanhande.com/upload/170529/4182606_160233_1.jpg"></mt-swipe-item>
+			<mt-swipe-item><router-link :to="{ name:'MoviInfo', params:{id:'id='+1}}"><img src="http://pic2.orsoon.com/2017/0609/20170609113930108.jpg"></router-link></mt-swipe-item>
+			<mt-swipe-item><router-link :to="{ name:'MoviInfo', params:{id:'id='+2}}"><img src="http://img.tulaoshi.com/image/20150520/1bf93c8afc4e81ffc49bd2b4313381b4.jpg"></router-link></mt-swipe-item>
+			<mt-swipe-item><router-link :to="{ name:'MoviInfo', params:{id:'id='+3}}"><img src="http://www.hanhande.com/upload/170529/4182606_160233_1.jpg"></router-link></mt-swipe-item>
+
 		</mt-swipe>
 
 	<div>
@@ -34,18 +35,7 @@ export default {
     }
   },
 created(){
-//	var url="../../static/JSON/jinreshangying.json"
-//	jsonp(url,null,function(err,data){
-//		if(err){
-//			console.log("数据无法获得");
-//		}else{
-//			
-//			console.log(data)
-//		}
-//	})
 	Vue.axios.get("../../static/jinreshangying.json").then((res) => {
-			//return res.data;
-		  //console.log(res.data.result)
 		  return res.data.result
 		}).then((data)=>{
 			 return this.arr = data.slice(0,12);

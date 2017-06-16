@@ -134,7 +134,7 @@
 	.content {
 		position: relative;
 		overflow: hidden;
-		min-height: 100vh;
+		min-height: 80vh;
 	}
 	
 	.playTimeAll {

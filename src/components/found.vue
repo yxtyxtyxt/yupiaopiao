@@ -12,7 +12,7 @@
 				<i class="iconfont icon-zixun-copy" id="copy"></i>
 				<span class="tab-label">影视资讯</span>
 			</router-link>
-			<router-link to='/search' class="rout">
+			<router-link to='/' class="rout">
 				<i class="iconfont icon-shangcheng" id="shangcheng"></i>
 				<span class="tab-label">搜索周边</span>
 			</router-link>

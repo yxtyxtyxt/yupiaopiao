@@ -5,7 +5,9 @@
 				<i class="btnn">北京</i>
 			</router-link>
 			<span>娱票票</span>
-			<i class="iconfont icon-search"></i>
+			<router-link to='/cinemaList' class="hhe">
+				<i class="iconfont icon-piaowuguanlihover"></i>
+			</router-link>
 		</header>
 		<router-view></router-view>
 		<footer id="fott" class="bar bar-tab">	

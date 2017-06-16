@@ -7,6 +7,8 @@ import { Popup,Header,Button,Swipe, SwipeItem,TabContainer,TabContainerItem,Cell
 import 'mint-ui/lib/style.css';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import '../static/iconfont.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 Vue.use(VueAxios,axios);
 Vue.component(Popup.name, Popup);
