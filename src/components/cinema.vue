@@ -43,9 +43,9 @@
 			}
 		},
 		methods: {
-					cityName(event){
-							this.city_name=event.currentTarget.innerText
-						},
+			cityName(event){
+				this.city_name=event.currentTarget.innerText;
+			},
 		},
 		created() {
 			Vue.axios.get('../../../static/city.json').then((res) => {
@@ -54,7 +54,7 @@
 				this.arr1 = data;
 				this.arr1 = this.arr1.slice(0, 20);
 				this.arr2 = data;
-				this.arr2 = this.arr2.slice(0, 80);
+				this.arr2 = this.arr2.slice(0, 60);
 			})
 		}
 	}

@@ -79,7 +79,13 @@ export default {
       pack:"钱包",
       money:"余额"
     }
-  }
+  },
+  created(){
+			var url1 = window.location.hash;			
+			var str11 = url1.split("/");				
+			var res = str11[2];
+			this.login = decodeURIComponent(res);
+	}
 }
 </script>
 

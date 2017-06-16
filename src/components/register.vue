@@ -2,7 +2,7 @@
   <div class="register">
   		<div class="bgZhe"></div>
 			<div class="bgpic"></div>			
-			<form action="" method="post">
+			<form>
 				<div class="box">
 					<i class="iconfont icon-suo1" id="count1"></i>
 				  <input type="password" value="" class="inp1"/>
@@ -11,10 +11,13 @@
 					<i class="iconfont icon-wode" id="count"></i>
 				  <input type="text"  class="inp2"/>
 				</div>
-				<div class="box">				
-				  <input type="submit" value="确认登录" class="inp3"/>				  
+				<div class="box" @click="addData">				
+				  	<i class="inp3">立即注册</i>				 
 				</div>
 			</form>
+			<router-link :to="{name:'Success', params:{name:name}}" class="rout" >
+				<p class="myself">返回个人中心</p>
+			</router-link>
   </div>
 </template>
 
@@ -23,8 +26,22 @@ export default {
   name: 'register',
   data () {
     return {
+      name:""
       
     }
+  },
+  methods:{
+  	addData(){
+  		var inp = document.getElementsByTagName("input");
+  		var name = inp[1].value;
+			var pwd = inp[0].value;
+  		this.name = localStorage.name = name;
+  		localStorage.pwd = pwd;  
+  		alert("注册成功！");
+  		inp[1].value = "";
+  		inp[0].value = "";
+  	}
+  	
   }
 }
 </script>
@@ -70,7 +87,8 @@ export default {
 .box:nth-child(3){
 	bottom:2rem;
 	left:0.5rem;
-	background: #ffcb16;	
+	background: #ffcb16;
+	cursor: pointer;	
 }
 .box>.inp2,.box>.inp1{
 	margin-left:0.24rem
@@ -83,9 +101,12 @@ export default {
 .box>.inp3{
 	display: block;
 	height:0.8rem;
-	width:5.35rem;
+	width:5.3rem;
 	font-weight: 800;
 	color:#000;
+	font-style: normal;
+	text-align: center;
+	margin-top:0.2rem
 }
 .box>i{
 	display: block;
@@ -97,5 +118,14 @@ export default {
 }
 #count1{
 	font-size: 0.46rem!important;
+}
+.myself{
+	display: block;
+	position: absolute;
+	right:0.2rem;
+	bottom:1rem;
+	color:#fcc;
+	font-size: 0.3rem;
+	font-weight: 600;
 }
 </style>

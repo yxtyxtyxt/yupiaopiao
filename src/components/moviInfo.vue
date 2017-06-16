@@ -6,7 +6,7 @@
    	  <div id="bg_pic">
    	  	<div id="zhe">
    	  	<div class="left">
-   	  		<img :src=arr.poster />
+   	  		<img :src="arr.poster" />
    	  		<span></span>
    	  	</div>
    	  	<div class="right">
@@ -56,7 +56,6 @@ export default {
 //			var id = res[1];
 //			Vue.axios.get('/movie/query?movieid='+id+'&dtype=&key=8a1d4466590e5546e5503d1e8c56bd27').then((res) => {
 		Vue.axios.get('../../static/info.json').then((res) => {	
-				console.log(res)
   		return res.data.result
   	}).then((data) =>{     	
       	this.arr = data;     	

@@ -8,6 +8,7 @@ import List from '@/components/list'
 import Login from '@/components/login'
 import Found from '@/components/found'
 import Register from '@/components/register'
+import Success from '@/components/success'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -37,7 +38,7 @@ export default new Router({
     	component:cinema
     },
     {
-    	path:'/login/',
+    	path:'/login',
     	name:'Login',
     	component:Login
     },
@@ -50,6 +51,11 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component:Register
+    },
+    {
+      path: '/success/:name',
+      name: 'Success',
+      component:Success
     }
   ]
 })

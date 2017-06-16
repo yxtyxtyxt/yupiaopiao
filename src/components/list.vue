@@ -43,12 +43,12 @@ created(){
 //			console.log(data)
 //		}
 //	})
-	Vue.axios.get("/movie/movies.today?cityid=3&dtype=&key=8a1d4466590e5546e5503d1e8c56bd27").then((res) => {
+	Vue.axios.get("../../static/jinreshangying.json").then((res) => {
 			//return res.data;
 		  //console.log(res.data.result)
 		  return res.data.result
 		}).then((data)=>{
-			 return this.arr=data
+			 return this.arr = data.slice(0,12);
 			 //console.log(this.arr)
 		})
 	},

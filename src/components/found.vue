@@ -59,6 +59,9 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+	a{
+		text-decoration: none;
+	}
 	#boss{
 		height:100%;
 		overflow: hidden;

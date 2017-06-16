@@ -79,9 +79,6 @@
 		margin-left:-0.38rem;
 		font-style:normal;
 	}
-	/*#heade>i{
-	   margin-right:-0.35rem; 
-	}*/
 	ul,ol,li {
 		list-style: none;
 	}	
@@ -99,11 +96,7 @@
 		bottom: 0;
 		z-index: 10;
 	}
-	/*.clickFilex{
-		display: flex;
-		flex-direction: column;
-	}*/
-		
+	
 	.rout {
 		display: flex;
 		flex-direction: column;
