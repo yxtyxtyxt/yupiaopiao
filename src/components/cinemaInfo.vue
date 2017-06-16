@@ -3,13 +3,13 @@
 		<div id="zhePic"></div>
 		<div id="bgPic"></div>
 		<div class="rows">
-			<h4 class="list-group-item-heading" id="drop">{{name}}</h4>
+			<h4 class="list-group-item-heading">{{name}}</h4>
 			<p class="list-group-item-text">地址:{{address}}</p>
 			<p class="list-group-item-text">电话:<b>{{telephone}}</b></p>
 		</div>
 		<mt-swipe :auto="0" :show-indicators="false" class="swipes">
-			<mt-swipe-item v-for="item in arr">
-				<li class="imglist">
+			<mt-swipe-item v-for="(item,index) in arr">
+				<li class="imglist" @touchmove="next(index)">
 					<img :src="item.pic_url">
 					<p>
 						{{item.movieName}}
@@ -17,29 +17,42 @@
 				</li>
 			</mt-swipe-item>
 		</mt-swipe>
-		<div class="playTimes" v-for="(item,i) in arr">
-			<dl>
-				<dd>次日播放</dd>
-				<dd>
-					<b>{{item.broadcast[1].time}}</b>
-					<span>{{item.language}}
+		<!--
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				 <div class="swiper-slide" v-for="str in listImg" :style="{ backgroundImage: 'url(' + str.url + ')' }"></div>
+			</div>
+			<div class="swiper-pagination swiper-pagination-white"></div>
+		</div>-->
+
+		<div class="content">
+			<div class="playTimeAll" v-for="(items,index) in arr" v-show="ok==index">
+				<div class="playTimes" v-for="item in items.broadcast">
+					<dl>
+						<dd class="play">次日播放</dd>
+						<dd>
+							<b class="time">{{item.time}}</b>
+							<span>{{item.language}}
 						<i>{{item.type}}</i>
 					</span>
-					<em>￥{{item.price}}</em>
-				</dd>
-				<dd>
-					<b>时长：120分</b>
-					<span>{{item.hall}}</span>
-					<em>优惠</em>
-				</dd>
-			</dl>
-			<a href="">购票</a>
+							<em :style="{color:color2}">￥{{item.price}}</em>
+						</dd>
+						<dd>
+							<b :style="{color:color1}">时长：120分</b>
+							<span :style="{color:color1}">{{item.hall}}</span>
+							<em :style="{color:color1}">优惠</em>
+						</dd>
+					</dl>
+					<a href="">购票</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 <script>
 	import Vue from "vue";
 	export default {
+		props: ['listImg'],
 		name: 'cinemaInfo',
 		data() {
 			return {
@@ -47,58 +60,68 @@
 				address: '',
 				telephone: '',
 				arr: '',
+				ok:'',
+				color1:'#abc',
+				color2:'#F0AD4E',
+			}
+		},
+		methods: {
+			next(index) {
+				this.ok=index
+				console.log(this.index)
 			}
 		},
 		created() {
 			Vue.axios.get('../../../static/yingpian.json').then((res) => {
 				return res.data.result
 			}).then((data) => {
-				this.arr = data.lists;
-
+				this.arr = data.lists
 				this.name = data.cinema_info.name;
 				this.address = data.cinema_info.address;
 				this.telephone = data.cinema_info.telephone;
 			})
 		}
-
 	}
 </script>
 
 <style scoped>
-	#app{
+	#app {
 		overflow: hidden;
 	}
-	a {
-		text-decoration: none;
-	}
 	#top{
-		margin-top: 0.69rem;
+		margin-top:0.68rem;
 	}
-
-	#drop{
-		padding-top: 0.3rem;
-	}
-	#zhePic{
+	#zhePic {
 		position: fixed;
-		height:100%;
+		height: 100%;
 		width: 100%;
-		background: rgba(0,0,0,0.5);
+		background: rgba(0, 0, 0, 0.5);
 		z-index: -1;
 	}
-	#bgPic{
+	
+	#bgPic {
 		position: fixed;
-		height:100%;
+		height: 100%;
 		width: 100%;
 		background: url(../../static/22.jpg) no-repeat;
 		background-size: cover;
 		z-index: -2;
 	}
-	.rows h4,p{
+	
+	a {
+		text-decoration: none;
+	}	
+	.rows h4,
+	p {
 		margin: 0.1rem 0.4rem;
 	}
-	.rows h4{
+	h4.list-group-item-heading{
+		padding-top:0.3rem
+	}
+	.rows h4 {
 		color: #EEEEEE;
 	}
+	
 	.swipes {
 		height: 4.5rem;
 		margin: 0.2rem 0;
@@ -108,13 +131,29 @@
 		text-align: center;
 	}
 	
+	.content {
+		position: relative;
+		overflow: hidden;
+		min-height: 100vh;
+	}
+	
+	.playTimeAll {
+		position: absolute;
+		overflow: hidden;
+		width: 100%;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+	
 	.playTimes {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
 		overflow: hidden;
-		border-bottom: #666 solid 1px;
-	}	
+		border-bottom: #555555 solid 1px;
+	}
+	
 	.playTimes a {
 		margin: 0;
 		width: 1rem;
@@ -135,6 +174,15 @@
 		justify-content: space-between;
 	}
 	
+	.playTimes dl dd b.time {
+		color: #F0AD4E;
+	}
+	
+	.playTimes dl dd.play {
+		color: #F3F3F3;
+		font-size: 0.2rem;
+	}
+	
 	.col-md-4 img {
 		width: 5rem;
 		height: 5rem;
@@ -152,7 +200,7 @@
 	.col-md-4 {
 		display: inline-block;
 	}
-	dd{
-		color:#fafafa;
+	body{
+		color:#aba!important;
 	}
 </style>

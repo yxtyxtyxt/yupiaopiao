@@ -125,7 +125,7 @@ export default {
 		align-content: center;
 	}
 	li a p{
-		font-size: 0.2rem;
+		font-size: 0.23rem;
 		line-height: 0.3rem;
 		color:#f0f0f0;
 		margin-left:0.1rem;
@@ -133,6 +133,6 @@ export default {
 	#see{
 		display: block;
 		color:orange;
-		font-size: 0.18rem!important;
+		font-size: 0.2rem!important;
 	}
 </style>
