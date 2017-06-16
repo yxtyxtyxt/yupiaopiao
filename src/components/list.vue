@@ -48,8 +48,13 @@ created(){
 				this.arr=Array.prototype.slice.call(this.arr);
 				//console.log(this.arr)
 				return this.arr.map(item=>{
-				item.movieName=item.movieName.substring(0,5)+"...";
+					if(item.movieName.length<5){
+						return item
+					}else{
+						item.movieName=item.movieName.substring(0,5)+"...";
 				return item;
+					}
+				
 			})
 		}
 	}

@@ -26,7 +26,7 @@
 				<li v-for="item in arr">
 					<router-link :to="{ name:'MoviInfo', params:{id:item.movieId}}">
 					    <p><img :src="item.pic_url" id="images"></p>
-						<p>
+						<p class="left4">
 							{{item.actors}}
 							<i class="iconfont icon-liulan" id="see">150</i>
 						</p>
@@ -52,7 +52,7 @@ export default {
   		//console.log(res);
   		return res.data.result;
   	}).then((data)=>{
-  		this.arr=data;
+  		this.arr=data.slice(0,20);
   	})
   }
 }
@@ -110,8 +110,8 @@ export default {
 		font-size: 0.5rem!important;
 	}
 	#images{
-		width:1.8rem;
-		height:1.3rem;
+		width:2rem;
+		height:2.5rem;
 		display: inline-block;
 	}
 	li{
@@ -125,14 +125,17 @@ export default {
 		align-content: center;
 	}
 	li a p{
-		font-size: 0.23rem;
-		line-height: 0.3rem;
+		font-size: 0.24rem;
+		line-height: 0.45rem;
 		color:#f0f0f0;
 		margin-left:0.1rem;
 	}
 	#see{
 		display: block;
 		color:orange;
-		font-size: 0.2rem!important;
+		font-size: 0.26rem!important;
+	}
+	.left4{
+		padding-left:0.3rem;
 	}
 </style>
