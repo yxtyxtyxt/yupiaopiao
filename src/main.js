@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import Comment  from './comment'
 import router from './router'
-import { Popup,Header,Button,Swipe, SwipeItem,TabContainer,TabContainerItem,Cell} from 'mint-ui';
+import { Popup,Header,Button,Swipe, SwipeItem,TabContainer,TabContainerItem,Cell,Switch} from 'mint-ui';
 import 'mint-ui/lib/style.css';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
@@ -12,7 +12,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 Vue.use(VueAxios,axios);
 Vue.component(Popup.name, Popup);
-Vue.component(Header.name,Header)
+Vue.component(Header.name,Header);
+Vue.component(Switch.name, Switch);
 Vue.component(Button.name,Button)
 Vue.component(TabContainer.name, TabContainer);
 Vue.component(TabContainerItem.name, TabContainerItem);

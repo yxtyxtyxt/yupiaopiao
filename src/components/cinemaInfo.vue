@@ -26,8 +26,8 @@
 		</div>-->
 
 		<div class="content">
-			<div class="playTimeAll" v-for="(items,index) in arr" v-show="ok==index">
-				<div class="playTimes" v-for="item in items.broadcast">
+			<div class="playTimeAll" v-show="ok">
+				<div class="playTimes" v-for="item in arr[ok].broadcast">
 					<dl>
 						<dd class="play">次日播放</dd>
 						<dd>
@@ -40,10 +40,10 @@
 						<dd>
 							<b :style="{color:color1}">时长：120分</b>
 							<span :style="{color:color1}">{{item.hall}}</span>
-							<em :style="{color:color1}">优惠</em>
+							<em :style="{color:color1}" >优惠</em>
 						</dd>
 					</dl>
-					<a href="">购票</a>
+					<router-link to="/jiesuan" ><span @click='goupiao(item,arr[ok])'>购票</span></router-link>
 				</div>
 			</div>
 		</div>
@@ -60,15 +60,20 @@
 				address: '',
 				telephone: '',
 				arr: '',
-				ok:'',
-				color1:'#abc',
-				color2:'#F0AD4E',
+				ok: '0',
+				color1: '#abc',
+				color2: '#F0AD4E',
+				flag: 'true'
 			}
 		},
 		methods: {
 			next(index) {
-				this.ok=index
-				console.log(this.index)
+				this.ok = index+1
+				console.log(index)
+			},
+			goupiao(item,items){
+				localStorage.goupiao=JSON.stringify(item)
+				localStorage.goupiaoarr=JSON.stringify(items)
 			}
 		},
 		created() {
@@ -88,8 +93,12 @@
 	#app {
 		overflow: hidden;
 	}
-	#top{
-		margin-top:0.68rem;
+	
+	#top {
+		margin-top: 0.68rem;
+	}
+	span{
+		font-size: 0.3rem;
 	}
 	#zhePic {
 		position: fixed;
@@ -98,7 +107,6 @@
 		background: rgba(0, 0, 0, 0.5);
 		z-index: -1;
 	}
-	
 	#bgPic {
 		position: fixed;
 		height: 100%;
@@ -108,16 +116,23 @@
 		z-index: -2;
 	}
 	
+	.divAuto {
+		overflow: auto;
+	}
+	
 	a {
 		text-decoration: none;
-	}	
+	}
+	
 	.rows h4,
 	p {
 		margin: 0.1rem 0.4rem;
 	}
-	h4.list-group-item-heading{
-		padding-top:0.3rem
+	
+	h4.list-group-item-heading {
+		padding-top: 0.3rem
 	}
+	
 	.rows h4 {
 		color: #EEEEEE;
 	}
@@ -135,6 +150,7 @@
 		position: relative;
 		overflow: hidden;
 		min-height: 80vh;
+		z-index: 10;
 	}
 	
 	.playTimeAll {
@@ -200,7 +216,8 @@
 	.col-md-4 {
 		display: inline-block;
 	}
-	body{
-		color:#aba!important;
+	
+	body {
+		color: #aba!important;
 	}
 </style>

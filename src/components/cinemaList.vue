@@ -35,7 +35,7 @@
 				this.arr = data
 			})
 			var urlId=window.location.href
-			console.log(urlId)
+			//console.log(urlId)
 		}
 	}
 </script>

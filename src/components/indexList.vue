@@ -16,7 +16,7 @@
 				    		<p><img :src="item.pic_url" id="images"></p>
 						  	<p id="word">{{item.movieName}}</p>
 			    	</router-link>
-				  	<div id="tui">购票</div>
+				  	<div id="tui"><router-link to="/cinemaList">购票</router-link></div>
 					</li>
 				</ul>
 			</mt-tab-container-item>
@@ -28,7 +28,7 @@
 //import jsonp from 'jsonp';
 import Vue from 'vue'
 export default {
-  name: 'list',
+  name: 'indexList',
   data () {
     return {
       arr:""
@@ -86,7 +86,7 @@ li {
   text-align: center;
 }
 a {
-  color: #42b983;
+  color: #242a27;
   text-decoration: none;
 }
 .list{

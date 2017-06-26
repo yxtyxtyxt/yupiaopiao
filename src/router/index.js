@@ -4,18 +4,19 @@ import cinemaList from '@/components/cinemaList'
 import cinemaInfo from '@/components/cinemaInfo'
 import MoviInfo from '@/components/moviInfo'
 import cinema from '@/components/cinema'
-import List from '@/components/list'
+import indexList from '@/components/indexList'
 import Login from '@/components/login'
 import Found from '@/components/found'
 import Register from '@/components/register'
 import Success from '@/components/success'
+import jieSuan from '@/components/jieSuan'
 Vue.use(Router)
 export default new Router({
   routes: [
   	{
       path: '/',
-      name: 'List',
-      component: List
+      name: 'indexList',
+      component: indexList
     },
   	{
       path: '/moviInfo/:id',
@@ -56,6 +57,11 @@ export default new Router({
       path: '/success/:name',
       name: 'Success',
       component:Success
+    },
+    	{
+      path: '/jieSuan',
+      name: 'jieSuan',
+      component: jieSuan
     }
   ]
 })

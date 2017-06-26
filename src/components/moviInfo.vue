@@ -34,7 +34,7 @@
 						<p><img :src="item.result.poster" id="images"></p>
 						<p id="word">{{item.result.title}}</p>
 					</router-link>
-					<div id="tui">购票</div>
+					<div id="tui"><router-link to="/cinemaList">购票</router-link> </div>
 				</li>
 			</ul>
 		</div>
